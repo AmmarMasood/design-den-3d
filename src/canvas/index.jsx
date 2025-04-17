@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { Environment, Center } from "@react-three/drei";
+import { Environment, Center, Html } from "@react-three/drei";
 
 import Shirt from "./Shirt";
 import Backdrop from "./Backdrop";
@@ -9,6 +9,8 @@ import state from "../store";
 import Coat from "./Coat";
 import Pants from "./Pants";
 import Shorts from "./Shorts";
+import { Suspense } from "react";
+import Loader from "../components/Loader";
 
 const CanvasModel = () => {
   const snap = useSnapshot(state);
@@ -38,12 +40,14 @@ const CanvasModel = () => {
       gl={{ preserveDrawingBuffer: true }}
       className="w-full max-w-full h-full transition-all ease-in"
     >
-      <ambientLight intensity={0.5} />
-      <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/potsdamer_platz_1k.hdr" />
-      <CameraRig>
-        <Backdrop />
-        <Center>{getCloth()}</Center>
-      </CameraRig>
+      <Suspense fallback={<Loader />}>
+        <ambientLight intensity={0.5} />
+        <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/potsdamer_platz_1k.hdr" />
+        <CameraRig>
+          <Backdrop />
+          <Center>{getCloth()}</Center>
+        </CameraRig>
+      </Suspense>
     </Canvas>
   );
 };
