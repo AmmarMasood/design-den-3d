@@ -6,8 +6,8 @@ const state = proxy({
   color: `#EFBD4E`,
   isLogoTexture: true, //are we displaying logo on shirt
   isFullTexture: false,
-  logoDecal: "../../public/zev-log.png",
-  fulldecal: "../../public/zev-log.png",
+  logoDecal: "/zev-log.png",
+  fulldecal: "/zev-log.png",
   clothingSelected: ClothTypes[0].name,
 });
 
