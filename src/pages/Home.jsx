@@ -46,7 +46,12 @@ const Home = () => {
               {...headContentAnimation}
               className="flex flex-col gap-5"
             >
-              <p className="max-w-md font-normal text-gray-900 text-base">
+              <p
+                className="max-w-md font-normal  text-lg"
+                style={{
+                  color: headingColor,
+                }}
+              >
                 Design your own custom t-shirts, shorts, pants and coats using
                 our 3D customizer.
               </p>

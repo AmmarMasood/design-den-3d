@@ -90,3 +90,19 @@ input[type="file"] {
 .sketch-picker > div:nth-child(3) {
   display: none !important;
 }
+
+.glow-in-the-dark {
+  filter: brightness(1.5); /* Makes the image brighter */
+  box-shadow: 0 0 10px #00ff00, 0 0 10px #00ff00, 0 0 40px #00ff00;
+  animation: glow-img 1.5s infinite alternate;
+  border-radius: 50%; /* Makes the element circular */
+}
+
+@keyframes glow-img {
+  from {
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00;
+  }
+  to {
+    box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+  }
+}
